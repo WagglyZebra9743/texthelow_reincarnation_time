@@ -25,7 +25,7 @@ public class RankSender {
                 "{\"uuid\":\"%s\", \"mcid\":\"%s\", \"sword\":%d, \"bow\":%d, \"magic\":%d, \"all\":%d}",
                 uuid, mcid, sword, bow, magic, all
             );
-            Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(jsonData));
+            System.out.println(jsonData);
             try (OutputStream os = conn.getOutputStream()) {
                 byte[] input = jsonData.getBytes("utf-8");
                 os.write(input, 0, input.length);
