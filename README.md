@@ -1,0 +1,2 @@
+# texthelow_reincarnation_time
+thelowでの転生時のタイム表示とランキング機能
