@@ -30,7 +30,7 @@ public class RankGetter {
         }
     }
 
-    private static final String API_URL = "https://script.google.com/macros/s/AKfycbzDTuPoPq790-Shm705JTwcg8EP9IKyvyevcIceaNFwOfwxke6DYaCExFrKMloZOezv/exec";
+    private static final String API_URL = "https://script.google.com/macros/s/AKfycbwfGy2bsiZ8qkHqCsqRA6QRAr5kJJ2YeQnTI-kOzVEhqKmB_h1U9AP6VjhIkHydTU3d/exec";
 
     // このメソッドだけ公開し、コマンドから呼び出す
     public static void fetchAndDisplayRanks(String category, ICommandSender sender, int count) {
@@ -44,9 +44,7 @@ public class RankGetter {
 
             if (ranks == null || ranks.isEmpty()) {
                 Minecraft.getMinecraft().addScheduledTask(() ->
-                    Minecraft.getMinecraft().thePlayer.addChatMessage(
-                        new ChatComponentText("§a[thelow_reincarnation_timer]§c ランキングデータの取得に失敗しました 時間を空けて再度実行してください")));
-		                
+                    Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("§a[thelow_reincarnation_timer]§c ランキングデータの取得に失敗しました 時間を空けて再度実行してください")));		                
                 return;
             }
 
