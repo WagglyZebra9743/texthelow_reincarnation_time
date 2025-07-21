@@ -5,7 +5,7 @@
   "description": "\u8ee2\u751f\u6642\u306b\u304b\u304b\u3063\u305f\u6642\u9593\u3092\u81ea\u52d5\u8a08\u6e2c\u3057\u307e\u3059",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "",
+  "url": "https://github.com/WagglyZebra9743/thelow_reincarnation_time",
   "updateUrl": "",
   "authorList": ["WagglyZebra9743"],
   "credits": "",

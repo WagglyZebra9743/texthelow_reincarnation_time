@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.thelow_reincarnation_timer.thelow_reincarnation_timer.chat.ChatListener;
+import com.thelow_reincarnation_timer.thelow_reincarnation_timer.commands.APIListener;
 import com.thelow_reincarnation_timer.thelow_reincarnation_timer.commands.ReincarnationTimerCommand;
 import com.thelow_reincarnation_timer.thelow_reincarnation_timer.config.ConfigHandler;
 import com.thelow_reincarnation_timer.thelow_reincarnation_timer.hud.thelow_reincarnation_timerHUD;
@@ -45,5 +46,7 @@ public class thelow_reincarnation_timer {
         ClientCommandHandler.instance.registerCommand(new ReincarnationTimerCommand());
         MinecraftForge.EVENT_BUS.register(new ChatListener());
         MinecraftForge.EVENT_BUS.register(new timer());
+        MinecraftForge.EVENT_BUS.register(new APIListener());
+
     }
 }

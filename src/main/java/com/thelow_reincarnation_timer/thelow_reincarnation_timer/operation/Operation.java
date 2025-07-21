@@ -84,6 +84,7 @@ public class Operation {
     	thelow_reincarnation_timer.TimerData.min_time_tick.set(3,min_time_tick);
     	
 	}
+	
 	public static String TicktoTimer(int tick){
 		int time_m = 0;
     	int time_s = 0;
@@ -97,5 +98,4 @@ public class Operation {
 		return text;
 		
 	}
-
 }

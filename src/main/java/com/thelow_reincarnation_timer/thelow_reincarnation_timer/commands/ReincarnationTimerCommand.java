@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
+import com.thelow_reincarnation_timer.thelow_reincarnation_timer.Secretdatas;
 import com.thelow_reincarnation_timer.thelow_reincarnation_timer.thelow_reincarnation_timer;
 import com.thelow_reincarnation_timer.thelow_reincarnation_timer.config.ConfigHandler;
 import com.thelow_reincarnation_timer.thelow_reincarnation_timer.operation.Operation;
@@ -96,12 +97,13 @@ public class ReincarnationTimerCommand extends CommandBase {
                 int magic = thelow_reincarnation_timer.TimerData.min_time_tick.get(2);
                 int all = thelow_reincarnation_timer.TimerData.min_time_tick.get(3);
                 String mcid = Minecraft.getMinecraft().thePlayer.getName();
+                Minecraft.getMinecraft().thePlayer.sendChatMessage("/thelow_api "+Secretdatas.APItype);
                 // Google Sheets に送信
                 new Thread(() -> {
                     RankSender.sendRank(uuid,mcid, sword, bow, magic, all);
                 }).start();
 
-                sender.addChatMessage(new ChatComponentText("§a[thelow_reincarnation_timer]§7データを送信中..."));
+                
                 break;
             }
             case "rank_get": {

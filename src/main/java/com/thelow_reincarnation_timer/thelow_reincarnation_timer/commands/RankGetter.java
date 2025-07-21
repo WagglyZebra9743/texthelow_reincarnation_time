@@ -9,6 +9,7 @@ import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.thelow_reincarnation_timer.thelow_reincarnation_timer.Secretdatas;
 import com.thelow_reincarnation_timer.thelow_reincarnation_timer.operation.Operation;
 
 import net.minecraft.client.Minecraft;
@@ -30,7 +31,7 @@ public class RankGetter {
         }
     }
 
-    private static final String API_URL = "https://script.google.com/macros/s/AKfycbwfGy2bsiZ8qkHqCsqRA6QRAr5kJJ2YeQnTI-kOzVEhqKmB_h1U9AP6VjhIkHydTU3d/exec";
+    private static final String API_URL = "https://script.google.com/macros/s/"+Secretdatas.APIkey+"/exec";
 
     // このメソッドだけ公開し、コマンドから呼び出す
     public static void fetchAndDisplayRanks(String category, ICommandSender sender, int count) {
@@ -42,9 +43,14 @@ public class RankGetter {
         new Thread(() -> {
             List<RankEntry> ranks = getRankData(category);
 
-            if (ranks == null || ranks.isEmpty()) {
+            if (ranks == null) {
                 Minecraft.getMinecraft().addScheduledTask(() ->
                     Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("§a[thelow_reincarnation_timer]§c ランキングデータの取得に失敗しました 時間を空けて再度実行してください")));		                
+                return;
+            }
+            if (ranks.isEmpty()) {
+                Minecraft.getMinecraft().addScheduledTask(() ->
+                    Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("§a[thelow_reincarnation_timer]§c ランキングデータの取得に失敗しました 表示できるデータが存在しない可能性があります")));		                
                 return;
             }
 
@@ -101,8 +107,8 @@ public class RankGetter {
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
             conn.setRequestMethod("GET");
-            conn.setConnectTimeout(5000);
-            conn.setReadTimeout(5000);
+            conn.setConnectTimeout(10000);
+            conn.setReadTimeout(10000);
 
             BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             StringBuilder result = new StringBuilder();
